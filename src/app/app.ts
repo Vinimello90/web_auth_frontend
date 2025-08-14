@@ -1,12 +1,17 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { MainComponent } from './components/main/main.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  imports: [HeaderComponent, MainComponent, FooterComponent],
+  template: `
+    <app-header />
+    <app-main />
+    <app-footer />
+  `,
 })
 export class App {
-  protected readonly title = signal('teste');
+  protected readonly title = signal('Web Authentication');
 }
