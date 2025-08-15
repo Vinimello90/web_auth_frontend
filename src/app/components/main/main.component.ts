@@ -1,7 +1,14 @@
 import { Component } from '@angular/core';
+import { AuthComponent } from './components/auth/auth.component';
 
 @Component({
   selector: 'app-main',
-  template: ` <main></main> `,
+  imports: [AuthComponent],
+  template: `
+    <main>
+      <app-auth />
+    </main>
+  `,
+  styleUrls: ['./main.component.css'],
 })
 export class MainComponent {}
