@@ -1,20 +1,12 @@
 import { Component } from '@angular/core';
+import { AuthComponent } from './components/auth/auth.component';
 
 @Component({
   selector: 'app-main',
+  imports: [AuthComponent],
   template: `
     <main>
-      <section class="auth">
-        <div class="auth__container">
-          <form action="" class="auth__form">
-            <label class="auth__label">
-              <input type="text" class="auth__input" placeholder="E-mail or username" required />
-            </label>
-            <button type="submit" class="auth__button">Register Passkey</button>
-            <button type="submit" class="auth__button">Authenticate</button>
-          </form>
-        </div>
-      </section>
+      <app-auth />
     </main>
   `,
   styleUrls: ['./main.component.css'],
