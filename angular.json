@@ -27,7 +27,7 @@
                 "input": "public"
               }
             ],
-            "styles": ["./src/vendor/normalize.css", "./src/vendor/fonts.css"]
+            "styles": ["./src/styles.css", "./src/vendor/normalize.css", "./src/vendor/fonts.css"]
           },
           "configurations": {
             "production": {

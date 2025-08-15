@@ -1,6 +1,12 @@
+.header {
+  padding: 41px 0 76px;
+}
+
 .header__top {
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 56px;
 }
 
 .header__logo {
@@ -15,5 +21,13 @@
 
 .header__sub-title {
   font-size: 46px;
-  margin: 17px 0 0;
+  margin: 17px auto 0;
+}
+
+.header__description {
+  font-size: 22px;
+  margin: 53px auto 0;
+  line-height: 1.6;
+  max-width: 967px;
+  text-align: center;
 }
