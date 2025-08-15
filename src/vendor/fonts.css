@@ -1,0 +1,17 @@
+@font-face {
+  src: url('./fonts/Inter_18pt-Regular.ttf') format('woff2');
+  font-family: 'Inter';
+  font-weight: 400;
+}
+
+@font-face {
+  src: url('./fonts/Inter_18pt-Medium.ttf') format('woff2');
+  font-family: 'Inter';
+  font-weight: 500;
+}
+
+@font-face {
+  src: url('./fonts/Inter_18pt-Bold.ttf') format('woff2');
+  font-family: 'Inter';
+  font-weight: 700;
+}

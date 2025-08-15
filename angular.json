@@ -19,10 +19,15 @@
             "assets": [
               {
                 "glob": "**/*",
+                "input": "src/assets",
+                "output": "assets"
+              },
+              {
+                "glob": "**/*",
                 "input": "public"
               }
             ],
-            "styles": ["./src/vendor/normalize.css"]
+            "styles": ["./src/vendor/normalize.css", "./src/vendor/fonts.css"]
           },
           "configurations": {
             "production": {

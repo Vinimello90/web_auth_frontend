@@ -7,10 +7,13 @@ import { MainComponent } from './components/main/main.component';
   selector: 'app-root',
   imports: [HeaderComponent, MainComponent, FooterComponent],
   template: `
-    <app-header />
-    <app-main />
-    <app-footer />
+    <div class="page">
+      <app-header />
+      <app-main />
+      <app-footer />
+    </div>
   `,
+  styleUrls: ['./app.css'],
 })
 export class App {
   protected readonly title = signal('Web Authentication');

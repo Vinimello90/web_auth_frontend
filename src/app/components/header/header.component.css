@@ -1,0 +1,19 @@
+.header__top {
+  display: flex;
+  justify-content: center;
+}
+
+.header__logo {
+  max-height: 262px;
+}
+
+.header__title {
+  font-size: 72px;
+  max-width: 712px;
+  margin: 0;
+}
+
+.header__sub-title {
+  font-size: 46px;
+  margin: 17px 0 0;
+}
