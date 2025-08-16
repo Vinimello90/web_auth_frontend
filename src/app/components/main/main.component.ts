@@ -5,7 +5,7 @@ import { AuthComponent } from './components/auth/auth.component';
   selector: 'app-main',
   imports: [AuthComponent],
   template: `
-    <main>
+    <main class="main">
       <app-auth />
     </main>
   `,

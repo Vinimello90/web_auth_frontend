@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     <footer class="footer">
       <ul class="footer__socials">
         <li class="footer__social-item">
-          <a href="" class="footer__link"
+          <a href="https://github.com/vinimello90" class="footer__link" target="_blank"
             ><svg class="footer__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
               <!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
               <path
@@ -17,7 +17,10 @@ import { Component } from '@angular/core';
           >
         </li>
         <li class="footer__social-item">
-          <a href="" class="footer__link"
+          <a
+            href="https://www.linkedin.com/in/vinicius-barretto-mello"
+            class="footer__link"
+            target="_blank"
             ><svg class="footer__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
               <!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
               <path
@@ -28,7 +31,7 @@ import { Component } from '@angular/core';
           >
         </li>
         <li class="footer__social-item">
-          <a href="" class="footer__link"
+          <a href="https://wa.me/5517992487641" class="footer__link" target="_blank"
             ><svg class="footer__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
               <!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
               <path
