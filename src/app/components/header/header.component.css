@@ -63,7 +63,7 @@
 
 @media screen and (max-width: 685px) {
   .header {
-    padding: 20px 10px 20px;
+    padding: 20px 13px 20px;
   }
   .header__top {
     flex-direction: column;
@@ -72,6 +72,7 @@
 
   .header__logo {
     height: 47.81vw;
+    max-height: 177px;
   }
 
   .header__title {
@@ -89,6 +90,6 @@
     margin-top: 20px;
     font-size: 14px;
     line-height: 1.71;
-    width: 91, 25vw;
+    width: 91.25vw;
   }
 }
