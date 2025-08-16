@@ -9,8 +9,8 @@ import { MainComponent } from './components/main/main.component';
   template: `
     <div class="page">
       <app-header />
-      <app-main />
-      <app-footer />
+      <!-- <app-main />
+      <app-footer /> -->
     </div>
   `,
   styleUrls: ['./app.css'],

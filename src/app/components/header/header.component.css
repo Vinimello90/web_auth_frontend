@@ -1,5 +1,5 @@
 .header {
-  padding: 41px 0 0;
+  padding: 40px 0 70px;
 }
 
 .header__top {
@@ -21,13 +21,74 @@
 
 .header__sub-title {
   font-size: 46px;
+  text-align: center;
   margin: 17px auto 0;
 }
 
 .header__description {
   font-size: 22px;
-  margin: 53px auto 0;
+  font-weight: 500;
+  margin: 70px auto 0;
   line-height: 1.6;
   max-width: 967px;
   text-align: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .header {
+    padding: 37px 10px 70px;
+  }
+  .header__top {
+    gap: 4.55vw;
+  }
+
+  .header__logo {
+    height: 22.5vw;
+  }
+
+  .header__title {
+    font-size: 50px;
+  }
+
+  .header__sub-title {
+    font-size: 32px;
+  }
+
+  .header__description {
+    max-width: 698px;
+    font-size: 18px;
+    line-height: 2;
+  }
+}
+
+@media screen and (max-width: 685px) {
+  .header {
+    padding: 20px 10px 20px;
+  }
+  .header__top {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .header__logo {
+    height: 47.81vw;
+  }
+
+  .header__title {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .header__sub-title {
+    font-size: 19.5px;
+    margin-top: 10px;
+  }
+
+  .header__description {
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 1.71;
+    width: 91, 25vw;
+  }
 }
