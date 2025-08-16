@@ -63,11 +63,11 @@
 
 @media screen and (max-width: 685px) {
   .header {
-    padding: 20px 13px 20px;
+    padding: 20px 13px 40px;
   }
   .header__top {
     flex-direction: column;
-    gap: 16px;
+    gap: 15px;
   }
 
   .header__logo {
@@ -78,7 +78,6 @@
   .header__title {
     font-size: 30px;
     text-align: center;
-    margin-top: 10px;
   }
 
   .header__sub-title {
@@ -87,7 +86,7 @@
   }
 
   .header__description {
-    margin-top: 20px;
+    margin-top: 40px;
     font-size: 14px;
     line-height: 1.71;
     width: 91.25vw;
