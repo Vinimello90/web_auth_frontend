@@ -1,12 +1,18 @@
 <section class="auth">
   <div class="auth__container">
-    <form action="" class="auth__form">
+    <form action="" class="auth__form" [formGroup]="userForm">
       <label class="auth__label">
-        <input type="text" class="auth__input" placeholder="E-mail or username" required />
+        <input
+          formControlName="user"
+          type="text"
+          class="auth__input"
+          placeholder="E-mail or username"
+          required
+        />
       </label>
       <div class="auth__actions">
-        <button type="submit" class="auth__button">Register Passkey</button>
-        <button type="submit" class="auth__button">Authenticate</button>
+        <button type="submit" class="auth__button" (click)="onRegister()">Register Passkey</button>
+        <button type="submit" class="auth__button" (click)="onAuthenticate()">Authenticate</button>
       </div>
     </form>
   </div>
