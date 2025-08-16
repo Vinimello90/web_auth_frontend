@@ -10,7 +10,7 @@ import { MainComponent } from './components/main/main.component';
     <div class="page">
       <app-header />
       <app-main />
-      <!-- <app-footer /> -->
+      <app-footer />
     </div>
   `,
   styleUrls: ['./app.css'],
