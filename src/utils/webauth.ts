@@ -5,6 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class WebAuthAuthorization {
   get isLoggedIn() {
-    return false;
+    return true;
   }
 }
