@@ -55,6 +55,69 @@
   margin: 0;
 }
 
+@media screen and (max-width: 1024px) {
+  .profile__container {
+    width: 90.89vw;
+    gap: 30px;
+  }
+
+  .profile__success-img {
+    height: 18.49vw;
+  }
+
+  .profile__title {
+    font-size: 28px;
+  }
+
+  .profile__message {
+    letter-spacing: 0.1px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .profile {
+    padding-bottom: 40px;
+  }
+
+  .profile__container {
+    flex-direction: column;
+    gap: 17px;
+    padding: 13px;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .profile__success-img {
+    height: 34.375vw;
+  }
+
+  .profile__content {
+    gap: 17px;
+  }
+
+  .profile__title {
+    font-size: 19.5px;
+    text-align: center;
+  }
+
+  .profile__message {
+    font-size: 14px;
+    letter-spacing: 0.1px;
+    line-height: 1.71;
+    text-align: center;
+  }
+
+  .profile__button {
+    margin: 0 auto;
+    font-size: 14px;
+    padding: 14px 0;
+  }
+
+  .profile__observation {
+    text-align: center;
+  }
+}
+
 @media (hover: hover) {
   .profile__button:hover {
     background-color: #005eb6;
