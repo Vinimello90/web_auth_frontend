@@ -3,13 +3,20 @@
     <form action="" class="auth__form" [formGroup]="userForm">
       <label class="auth__label">
         <input
-          formControlName="user"
+          formControlName="username"
           type="text"
           class="auth__input"
           placeholder="E-mail or username"
           required
         />
       </label>
+
+      @if (successMessage()) {
+      <p class="auth__message auth__message_type_success">{{ successMessage() }}</p>
+      } @if (errorMessage()) {
+      <p class="auth__message auth__message_type_error">{{ errorMessage() }}</p>
+      }
+
       <div class="auth__actions">
         <button type="submit" class="auth__button" (click)="onRegister()">Register Passkey</button>
         <button type="submit" class="auth__button" (click)="onAuthenticate()">Authenticate</button>
