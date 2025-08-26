@@ -11,7 +11,7 @@
         You are now logged in through a WebAuthn process, a secure authentication method that uses
         Passkeys instead of passwords.
       </p>
-      <button type="button" class="profile__button">Logout</button>
+      <button (click)="onLogout()" type="button" class="profile__button">Logout</button>
       <p class="profile__observation">*Credentials are stored for 24 hours.</p>
     </div>
   </div>

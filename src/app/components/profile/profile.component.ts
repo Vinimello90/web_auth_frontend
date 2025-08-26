@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject, Injectable } from '@angular/core';
+import { TokenService } from '../../services/token.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile.component',
@@ -6,4 +8,12 @@ import { Component } from '@angular/core';
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css',
 })
-export class ProfileComponent {}
+export class ProfileComponent {
+  private tokenService = inject(TokenService);
+  private router = inject(Router);
+
+  onLogout() {
+    this.tokenService.removeToken();
+    this.router.navigate(['']);
+  }
+}

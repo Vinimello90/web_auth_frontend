@@ -58,8 +58,4 @@ export class WebAuthService {
       switchMap((result) => this.verifyAuthentication(result))
     );
   }
-
-  get isLoggedIn() {
-    return false;
-  }
 }

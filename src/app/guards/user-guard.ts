@@ -10,13 +10,7 @@ export const userGuard: CanActivateFn = (route, state) => {
   const token = inject(TokenService);
 
   return auth.isLoggedIn().pipe(
-    map((isAuth) => {
-      if (token.getToken && isAuth) {
-        return true;
-      } else {
-        return router.parseUrl('/');
-      }
-    }),
+    map((isAuth) => (token.getToken && isAuth ? true : router.parseUrl('/'))),
     catchError(() => {
       token.removeToken();
       return scheduled([router.parseUrl('/')], asyncScheduler);
