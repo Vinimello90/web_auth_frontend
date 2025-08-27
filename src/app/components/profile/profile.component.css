@@ -11,6 +11,7 @@
   max-width: 845px;
   box-sizing: border-box;
   padding: 33px;
+  view-transition-name: auth;
 }
 
 .profile__success-img {
