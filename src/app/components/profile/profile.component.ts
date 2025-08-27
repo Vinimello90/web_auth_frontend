@@ -1,4 +1,4 @@
-import { Component, inject, Injectable } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { TokenService } from '../../services/token.service';
 import { Router } from '@angular/router';
 

@@ -1,7 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
-import { switchMap } from 'rxjs';
+import { finalize } from 'rxjs';
 import { WebAuthService } from '../../services/webauth.service';
 import { Router } from '@angular/router';
 import { TokenService } from '../../services/token.service';
@@ -14,10 +13,10 @@ import { TokenService } from '../../services/token.service';
 })
 export class AuthComponent {
   private router = inject(Router);
-  private auth = inject(AuthService);
   private webAuth = inject(WebAuthService);
   private token = inject(TokenService);
 
+  isLoading = signal({ registering: false, authenticating: false });
   successMessage = signal('');
   errorMessage = signal('');
 
@@ -27,35 +26,45 @@ export class AuthComponent {
 
   async onRegister() {
     const { username } = this.userForm.getRawValue();
-    this.auth
-      .createUser(username)
-      .pipe(switchMap(() => this.webAuth.registerPasskey()))
+    this.isLoading.update((state) => ({ ...state, registering: true }));
+    this.webAuth
+      .registerPasskey(username)
+      .pipe(finalize(() => this.isLoading.update((state) => ({ ...state, registering: false }))))
       .subscribe({
         next: () => {
           this.errorMessage.set('');
           this.successMessage.set('User and Passkey registered successfully.');
         },
-        error: ({ error }) => {
+        error: (err) => {
+          if (err.name === 'NotAllowedError') {
+            return;
+          }
           this.successMessage.set('');
-          this.errorMessage.set(error.message || 'Unexpected error');
+          this.errorMessage.set(err.message || 'Unexpected error');
         },
       });
   }
 
   onAuthenticate() {
     const { username } = this.userForm.getRawValue();
-
-    this.webAuth.authenticatePasskey(username).subscribe({
-      next: (token) => {
-        this.errorMessage.set('');
-        this.successMessage.set('');
-        this.token.setToken(token);
-        this.router.navigate(['/profile']);
-      },
-      error: ({ error = { message: 'Unexpected error' } }) => {
-        this.successMessage.set('');
-        this.errorMessage.set(error.message);
-      },
-    });
+    this.isLoading.update((state) => ({ ...state, authenticating: true }));
+    this.webAuth
+      .authenticatePasskey(username)
+      .pipe(finalize(() => this.isLoading.update((state) => ({ ...state, authenticating: false }))))
+      .subscribe({
+        next: (token) => {
+          this.errorMessage.set('');
+          this.successMessage.set('');
+          this.token.setToken(token);
+          this.router.navigate(['/profile']);
+        },
+        error: (err) => {
+          if (err.name === 'NotAllowedError') {
+            return;
+          }
+          this.successMessage.set('');
+          this.errorMessage.set(err.error.message || 'Unexpected error');
+        },
+      });
   }
 }

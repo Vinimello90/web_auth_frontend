@@ -15,10 +15,10 @@ export class WebAuthService {
     });
   }
 
-  private getRegistrationOptions() {
+  private getRegistrationOptions(username: any) {
     return this.http.post(
       'http://localhost:3001/passkeys/register/options',
-      {},
+      { username: username },
       { withCredentials: true }
     );
   }
@@ -45,8 +45,8 @@ export class WebAuthService {
     return from(startAuthentication({ optionsJSON: options }));
   }
 
-  registerPasskey() {
-    return this.getRegistrationOptions().pipe(
+  registerPasskey(username: any) {
+    return this.getRegistrationOptions(username).pipe(
       switchMap((options) => this.startPasskeyRegistration(options)),
       switchMap((result) => this.verifyRegistration(result))
     );
