@@ -1,11 +1,12 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { WebAuthAuthorization } from '../utils/webauth';
+import { TokenService } from '../services/token.service';
 
 export const guestGuard: CanActivateFn = (route, state) => {
-  const auth = inject(WebAuthAuthorization);
   const router = inject(Router);
-  if (!auth.isLoggedIn) {
+  const token = inject(TokenService);
+
+  if (!token.getToken) {
     return true;
   } else {
     return router.parseUrl('/profile');
