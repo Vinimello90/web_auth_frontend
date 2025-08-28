@@ -8,7 +8,7 @@ import { startAuthentication, startRegistration } from '@simplewebauthn/browser'
 })
 export class WebAuthService {
   private http = inject(HttpClient);
-  private apiUrl = 'https://api.webauth.protechadvanced.com';
+  private apiUrl = 'http://localhost:3002';
 
   private verifyRegistration(options: any) {
     return this.http.post(`${this.apiUrl}/passkeys/register/verify`, options, {

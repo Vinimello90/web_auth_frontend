@@ -42,21 +42,25 @@ export class AuthComponent {
           this.successMessage.set('Success! Now try to authenticate');
         },
         error: (err) => {
+          this.successMessage.set('');
           if (err.name === 'NotAllowedError') {
             return;
           }
-          if (err.name === 'HttpErrorResponse') {
-            this.errorMessage.set('Unexpected error');
+          if (err.name === 'InvalidStateError') {
+            this.errorMessage.set('The authenticator was previously registered');
             return;
           }
-          this.successMessage.set('');
-          this.errorMessage.set(err.message || 'Unexpected error');
+          this.errorMessage.set(
+            err.message || 'Something went wrong on the server. Please try again.'
+          );
         },
       });
   }
 
   onAuthenticate() {
     const { username } = this.userForm.getRawValue();
+    this.errorMessage.set('');
+    this.successMessage.set('');
     if (!username) {
       this.errorMessage.set('Please enter a username to authenticate');
       return;
@@ -67,8 +71,6 @@ export class AuthComponent {
       .pipe(finalize(() => this.isLoading.update((state) => ({ ...state, authenticating: false }))))
       .subscribe({
         next: (token) => {
-          this.errorMessage.set('');
-          this.successMessage.set('');
           this.token.setToken(token);
           this.router.navigate(['/profile']);
         },
@@ -76,11 +78,6 @@ export class AuthComponent {
           if (err.name === 'NotAllowedError') {
             return;
           }
-          if (err.name === 'HttpErrorResponse') {
-            this.errorMessage.set('Something went wrong on the server. Please try again.');
-            return;
-          }
-          this.successMessage.set('');
           this.errorMessage.set(
             err.error.message || 'Something went wrong on the server. Please try again.'
           );
