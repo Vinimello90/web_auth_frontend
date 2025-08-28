@@ -77,11 +77,13 @@ export class AuthComponent {
             return;
           }
           if (err.name === 'HttpErrorResponse') {
-            this.errorMessage.set('Unexpected error');
+            this.errorMessage.set('Something went wrong on the server. Please try again.');
             return;
           }
           this.successMessage.set('');
-          this.errorMessage.set(err.error.message || 'Unexpected error');
+          this.errorMessage.set(
+            err.error.message || 'Something went wrong on the server. Please try again.'
+          );
         },
       });
   }
