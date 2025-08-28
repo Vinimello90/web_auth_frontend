@@ -1,5 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
+import { ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
 import { WebAuthService } from '../../services/webauth.service';
@@ -21,11 +21,17 @@ export class AuthComponent {
   errorMessage = signal('');
 
   userForm = new FormGroup({
-    username: new FormControl('', { nonNullable: true }),
+    username: new FormControl('', [Validators.required]),
   });
 
-  async onRegister() {
+  onSubmit(action: string) {}
+
+  onRegister() {
     const { username } = this.userForm.getRawValue();
+    if (!username) {
+      this.errorMessage.set('Please enter a username to register');
+      return;
+    }
     this.isLoading.update((state) => ({ ...state, registering: true }));
     this.webAuth
       .registerPasskey(username)
@@ -33,10 +39,14 @@ export class AuthComponent {
       .subscribe({
         next: () => {
           this.errorMessage.set('');
-          this.successMessage.set('User and Passkey registered successfully.');
+          this.successMessage.set('Success! Now try to authenticate');
         },
         error: (err) => {
           if (err.name === 'NotAllowedError') {
+            return;
+          }
+          if (err.name === 'HttpErrorResponse') {
+            this.errorMessage.set('Unexpected error');
             return;
           }
           this.successMessage.set('');
@@ -47,6 +57,10 @@ export class AuthComponent {
 
   onAuthenticate() {
     const { username } = this.userForm.getRawValue();
+    if (!username) {
+      this.errorMessage.set('Please enter a username to authenticate');
+      return;
+    }
     this.isLoading.update((state) => ({ ...state, authenticating: true }));
     this.webAuth
       .authenticatePasskey(username)
@@ -60,6 +74,10 @@ export class AuthComponent {
         },
         error: (err) => {
           if (err.name === 'NotAllowedError') {
+            return;
+          }
+          if (err.name === 'HttpErrorResponse') {
+            this.errorMessage.set('Unexpected error');
             return;
           }
           this.successMessage.set('');
