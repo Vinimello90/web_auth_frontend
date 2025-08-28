@@ -1,3 +1,7 @@
+.auth {
+  padding-bottom: 70px;
+}
+
 .auth__container {
   max-width: 613px;
   box-sizing: border-box;
@@ -5,6 +9,7 @@
   border-radius: 20px;
   padding: 33px;
   margin: 0 auto;
+  view-transition-name: auth;
 }
 
 .auth__form {
@@ -79,6 +84,10 @@
 }
 
 @media screen and (max-width: 685px) {
+  .auth {
+    padding-bottom: 40px;
+  }
+
   .auth__container {
     padding: 13px;
     width: 80vw;

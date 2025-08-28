@@ -8,16 +8,17 @@ import { startAuthentication, startRegistration } from '@simplewebauthn/browser'
 })
 export class WebAuthService {
   private http = inject(HttpClient);
+  private apiUrl = 'https://api.webauth.protechadvanced.com';
 
   private verifyRegistration(options: any) {
-    return this.http.post('http://localhost:3001/passkeys/register/verify', options, {
+    return this.http.post(`${this.apiUrl}/passkeys/register/verify`, options, {
       withCredentials: true,
     });
   }
 
   private getRegistrationOptions(username: any) {
     return this.http.post(
-      'http://localhost:3001/passkeys/register/options',
+      `${this.apiUrl}/passkeys/register/options`,
       { username: username },
       { withCredentials: true }
     );
@@ -28,14 +29,14 @@ export class WebAuthService {
   }
 
   private verifyAuthentication(options: any) {
-    return this.http.post('http://localhost:3001/passkeys/authentication/verify', options, {
+    return this.http.post(`${this.apiUrl}/passkeys/authentication/verify`, options, {
       withCredentials: true,
     });
   }
 
   private getAuthenticationOptions(username: any) {
     return this.http.post(
-      'http://localhost:3001/passkeys/authentication/options',
+      `${this.apiUrl}/passkeys/authentication/options`,
       { username: username },
       { withCredentials: true }
     );

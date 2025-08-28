@@ -1,8 +1,8 @@
 import { Component, inject, signal } from '@angular/core';
 import { ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
 import { WebAuthService } from '../../services/webauth.service';
-import { Router } from '@angular/router';
 import { TokenService } from '../../services/token.service';
 
 @Component({
