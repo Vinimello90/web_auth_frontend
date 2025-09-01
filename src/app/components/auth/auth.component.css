@@ -1,0 +1,153 @@
+.auth {
+  padding-bottom: 70px;
+}
+
+.auth__container {
+  max-width: 613px;
+  box-sizing: border-box;
+  background-color: #d9d9d921;
+  border-radius: 20px;
+  padding: 33px;
+  margin: 0 auto;
+  view-transition-name: auth;
+}
+
+.auth__form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.auth__input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 49px;
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
+}
+
+.auth__message {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0 auto;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.auth__message_type_success {
+  background: linear-gradient(to left, #4b644b00 0%, #4b644be7 25%, #4b644be7 75%, #4b644b00 100%);
+  color: #ceffce;
+}
+
+.auth__message_type_error {
+  background: linear-gradient(to left, #4b644b00 0%, #773a3ae7 25%, #773a3ae7 75%, #4b644b00 100%);
+  color: #ffcece;
+}
+
+.auth__actions {
+  display: flex;
+  gap: 15px;
+}
+
+.auth__button {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  height: 51px;
+  font-weight: 500;
+  border-radius: 8px;
+  background-color: #0070b6;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: background-color ease 0.3s;
+}
+
+.auth__spinner {
+  display: inline-block;
+  margin-left: 8px;
+  border: 2px solid #aad6ff;
+  border-top: 2px solid #00619e;
+  border-radius: 50%;
+  height: 16px;
+  width: 16px;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 685px) {
+  .auth {
+    padding-bottom: 40px;
+  }
+
+  .auth__container {
+    padding: 13px;
+    width: 80vw;
+  }
+
+  .auth__form {
+    gap: 14px;
+  }
+
+  .auth__label {
+    width: 100%;
+  }
+
+  .auth__input {
+    font-size: 14px;
+    height: 42px;
+  }
+
+  .auth__actions {
+    margin: 0 auto;
+    width: 100%;
+    gap: 14px;
+    font-size: 14px;
+  }
+
+  .auth__button {
+    height: 44px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .auth__container {
+    border-radius: 0;
+    padding: 13px;
+    width: 100%;
+  }
+
+  .auth__form {
+    gap: 14px;
+  }
+
+  .auth__label {
+    margin: 0 auto;
+    width: 91.25vw;
+  }
+
+  .auth__input {
+    font-size: 14px;
+  }
+
+  .auth__actions {
+    margin: 0 auto;
+    width: 91.25vw;
+    gap: 14px;
+    font-size: 14px;
+  }
+}
+
+@media (hover: hover) {
+  .auth__button:hover {
+    background-color: #005eb6;
+  }
+}

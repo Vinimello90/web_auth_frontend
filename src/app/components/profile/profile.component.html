@@ -1,0 +1,18 @@
+<section class="profile">
+  <div class="profile__container">
+    <img
+      src="../../../assets/success.svg"
+      alt="success shield image"
+      class="profile__success-img"
+    />
+    <div class="profile__content">
+      <h2 class="profile__title">Successfully Authenticated!</h2>
+      <p class="profile__message">
+        You are now logged in through a WebAuthn process, a secure authentication method that uses
+        Passkeys instead of passwords.
+      </p>
+      <button (click)="onLogout()" type="button" class="profile__button">Logout</button>
+      <p class="profile__observation">*Credentials are stored for 24 hours.</p>
+    </div>
+  </div>
+</section>
