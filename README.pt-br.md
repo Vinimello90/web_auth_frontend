@@ -55,11 +55,11 @@ Utilizei o **Angular** com **Typescript**, separando o código em componentes pa
 
 - **Preloader** – Implementei uma animação de carregamento controlada por `signal()`, exibida durante o registro e autenticação.
 
-  <p align="center"><img src="./src/assets/screenshot_preloader.png" alt="Screenshot of the preloader" width="100%"></p>
+<p align="center"><img src="./src/assets/screenshot_preloader.png" alt="Screenshot of the preloader" width="100%"></p>
 
 - **Seção do Perfil** – Implementei `provideRouter` como provedor e injetei o `router` no componente como dependência para navegar até a seção de perfil após a autenticação. Na seção indica uma autenticação bem-sucedida e inclui um botão para fazer logout.
 
-  <p align="center"><img src="./src/assets/screenshot_authenticated.png" alt="Screenshot of the profile section" width="100%"></p>
+<p align="center"><img src="./src/assets/screenshot_authenticated.png" alt="Screenshot of the profile section" width="100%"></p>
 
 - **Route Guards** - Foi utilizado as funções para proteger as rotas, utilizando **guestGuard** para redirecionar o usuário não authenticado para a pagina principal e o **userGuard** para redirecionar pra a seção do perfil caso authenticado.
 

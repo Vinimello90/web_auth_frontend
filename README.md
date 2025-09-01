@@ -56,13 +56,13 @@ The project uses **Angular** with **TypeScript**, separating the code into compo
 
 - **Preloader** – A loading animation controlled by `signal()` was implemented, displayed during registration and authentication.
 
-  <p align="center"><img src="./src/assets/screenshot_preloader.png" alt="Screenshot of the preloader" width="100%"></p>
+<p align="center"><img src="./src/assets/screenshot_preloader.png" alt="Screenshot of the preloader" width="100%"></p>
 
 - **Profile Section** – It uses `provideRouter` as a provider and injects `router` to a component as dependency to navigate to the profile section after authentication. It indicates a successful authentication and includes a button to logout.
 
-  <p align="center"><img src="./src/assets/screenshot_authenticated.png" alt="Screenshot of the profile section" width="100%"></p>
+<p align="center"><img src="./src/assets/screenshot_authenticated.png" alt="Screenshot of the profile section" width="100%"></p>
 
-  - **Route Guards** – Functions were used to protect routes, using **guestGuard** to redirect unauthenticated users to the main page and **userGuard** to redirect authenticated users to the profile section.
+- **Route Guards** – Functions were used to protect routes, using **guestGuard** to redirect unauthenticated users to the main page and **userGuard** to redirect authenticated users to the profile section.
 
 ### API
 
