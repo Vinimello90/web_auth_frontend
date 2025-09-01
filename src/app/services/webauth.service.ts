@@ -2,23 +2,23 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { from, switchMap } from 'rxjs';
 import { startAuthentication, startRegistration } from '@simplewebauthn/browser';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class WebAuthService {
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:3002';
 
   private verifyRegistration(options: any) {
-    return this.http.post(`${this.apiUrl}/passkeys/register/verify`, options, {
+    return this.http.post(`${environment.apiUrl}/passkeys/register/verify`, options, {
       withCredentials: true,
     });
   }
 
   private getRegistrationOptions(username: any) {
     return this.http.post(
-      `${this.apiUrl}/passkeys/register/options`,
+      `${environment.apiUrl}/passkeys/register/options`,
       { username: username },
       { withCredentials: true }
     );
@@ -29,14 +29,14 @@ export class WebAuthService {
   }
 
   private verifyAuthentication(options: any) {
-    return this.http.post(`${this.apiUrl}/passkeys/authentication/verify`, options, {
+    return this.http.post(`${environment.apiUrl}/passkeys/authentication/verify`, options, {
       withCredentials: true,
     });
   }
 
   private getAuthenticationOptions(username: any) {
     return this.http.post(
-      `${this.apiUrl}/passkeys/authentication/options`,
+      `${environment.apiUrl}/passkeys/authentication/options`,
       { username: username },
       { withCredentials: true }
     );

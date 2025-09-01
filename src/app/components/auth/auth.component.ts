@@ -42,6 +42,7 @@ export class AuthComponent {
           this.successMessage.set('Success! Now try to authenticate');
         },
         error: (err) => {
+          console.log(err.name);
           this.successMessage.set('');
           if (err.name === 'NotAllowedError') {
             return;
@@ -50,9 +51,11 @@ export class AuthComponent {
             this.errorMessage.set('The authenticator was previously registered');
             return;
           }
-          this.errorMessage.set(
-            err.message || 'Something went wrong on the server. Please try again.'
-          );
+          if (err.name === 'HttpErrorResponse') {
+            this.errorMessage.set('Something went wrong on the server. Please try again later.');
+            return;
+          }
+          this.errorMessage.set(err.message);
         },
       });
   }
@@ -75,11 +78,12 @@ export class AuthComponent {
           this.router.navigate(['/profile']);
         },
         error: (err) => {
+          console.log(err);
           if (err.name === 'NotAllowedError') {
             return;
           }
           this.errorMessage.set(
-            err.error.message || 'Something went wrong on the server. Please try again.'
+            err.error.message || 'Something went wrong on the server. Please try again later.'
           );
         },
       });
