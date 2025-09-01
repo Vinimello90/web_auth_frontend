@@ -16,7 +16,7 @@ export class AuthComponent {
   private webAuth = inject(WebAuthService);
   private token = inject(TokenService);
 
-  isLoading = signal({ registering: false, authenticating: false });
+  isLoading = signal({ registering: true, authenticating: false });
   successMessage = signal('');
   errorMessage = signal('');
 
