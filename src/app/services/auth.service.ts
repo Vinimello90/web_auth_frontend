@@ -11,7 +11,7 @@ export class AuthService {
   private token = inject(TokenService);
 
   isLoggedIn() {
-    return this.http.get(environment.apiUrl, {
+    return this.http.get(`${environment.apiUrl}/users/me`, {
       headers: {
         authorization: `Bearer ${this.token.getToken}`,
       },
